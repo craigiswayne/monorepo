@@ -1,15 +1,15 @@
-name: Publish Quirky Holidays Calendar
+name: Publish Pool League Calendars
 
 on:
   push:
     branches:
       - 'main'
   schedule:
-    - cron: '0 0 1 1 *'
+    - cron: '1 0 * * 1-2'
   workflow_dispatch:
 
 env:
-  WORKING_DIRECTORY: 'quirky-holidays'
+  WORKING_DIRECTORY: 'pool-league-fixtures'
 
 permissions:
   contents: write
@@ -35,19 +35,27 @@ jobs:
 
       - run: npm install
 
-      - name: 'Build Typescript'
-        run: npm run build
+      - run: mkdir -p dist
 
-      - name: 'Generate the Calendar'
-        run: npm run start
+      - name: 'Scrape Website for Fixtures'
+        run: node scripts/get-team-pages.js
+
+      - name: 'Extract html fixtures to json'
+        run: node scripts/html-to-json-fixtures.js
+
+      - name: 'Extract html results to json'
+        run: node scripts/html-to-json-results.js
+
+      - name: 'Convert json Fixtures to ics'
+        run: node scripts/json-to-ics.js
 
       - name: Create/Update 'latest' Release with Calendar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: softprops/action-gh-release@v1
         with:
-          name: 'Latest Fun Holidays'
-          tag_name: 'latest-fun-holidays'
+          name: 'Latest Pool League Fixtures Calendar'
+          tag_name: 'latest-pool-league-fixtures'
           fail_on_unmatched_files: true
-          body: 'This release contains the most up-to-date Fun Holidays I care about. Subscribe to the .ics files below.'
-          files: "${{ env.WORKING_DIRECTORY }}/*.ics"
+          body: 'This release contains the most up-to-date fixtures for each team. Subscribe to the .ics files below.'
+          files: "${{ env.WORKING_DIRECTORY }}/dist/*.ics"
