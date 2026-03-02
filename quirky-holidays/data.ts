@@ -4,7 +4,6 @@ export interface AnnualEvent {
     name: string;
     type: 'recurring' | 'calculated';
     calculate?: (year: number) => Date;
-    cron?: string;
     recurrenceRule?: string;
 }
 export const annual_events: AnnualEvent[] = [
@@ -21,19 +20,16 @@ export const annual_events: AnnualEvent[] = [
     {
         name: 'Star Wars Day',
         type: 'recurring',
-        cron: '0 0 4 5 *',
-        recurrenceRule: 'FREQ=YEARLY;INTERVAL=1'
+        recurrenceRule: 'FREQ=YEARLY;BYMONTH=5;BYMONTHDAY=4'
     },
     {
         name: 'International Coffee Day',
         type: 'recurring',
-        cron: '0 0 1 10 *',
-        recurrenceRule: 'FREQ=YEARLY;INTERVAL=1'
+        recurrenceRule: 'FREQ=YEARLY;BYMONTH=10;BYMONTHDAY=1'
     },
     {
         name: 'World Pizza Day',
         type: 'recurring',
-        cron: '0 0 9 2 *',
-        recurrenceRule: 'FREQ=YEARLY;INTERVAL=1'
+        recurrenceRule: 'FREQ=YEARLY;BYMONTH=2;BYMONTHDAY=9'
     }
 ];
