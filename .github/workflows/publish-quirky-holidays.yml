@@ -1,0 +1,53 @@
+name: Publish Quirky Holidays Calendar
+
+on:
+  push:
+    branches:
+      - 'main'
+  schedule:
+    - cron: '0 0 1 1 *'
+  workflow_dispatch:
+
+env:
+  WORKING_DIRECTORY: 'quirky-holidays'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "${{ env.WORKING_DIRECTORY }}"
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: 'npm'
+          cache-dependency-path: "${{ env.WORKING_DIRECTORY }}"
+
+      - run: npm install
+
+      - name: 'Build Typescript'
+        run: npm run build
+
+      - name: 'Generate the Calendar'
+        run: npm run start
+
+      - name: Create/Update 'latest' Release with Calendar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v1
+        with:
+          name: 'Latest Fun Holidays'
+          tag_name: 'latest-fun-holidays'
+          fail_on_unmatched_files: true
+          body: 'This release contains the most up-to-date Fun Holidays I care about. Subscribe to the .ics files below.'
+          files: "${{ env.WORKING_DIRECTORY }}/*.ics"

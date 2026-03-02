@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ics": "^3.8.1",
+    "rrule": "^2.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}

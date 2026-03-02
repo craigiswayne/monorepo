@@ -1,0 +1,61 @@
+name: Publish Fixture Calendar
+
+on:
+  push:
+    branches:
+      - 'main'
+  schedule:
+    - cron: '1 0 * * 1-2'
+  workflow_dispatch:
+
+env:
+  WORKING_DIRECTORY: 'pool-league-fixtures'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "${{ env.WORKING_DIRECTORY }}"
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: 'npm'
+          cache-dependency-path: "${{ env.WORKING_DIRECTORY }}"
+
+      - run: npm install
+
+      - run: mkdir -p dist
+
+      - name: 'Scrape Website for Fixtures'
+        run: node scripts/get-team-pages.js
+
+      - name: 'Extract html fixtures to json'
+        run: node scripts/html-to-json-fixtures.js
+
+      - name: 'Extract html results to json'
+        run: node scripts/html-to-json-results.js
+
+      - name: 'Convert json Fixtures to ics'
+        run: node scripts/json-to-ics.js
+
+      - name: Create/Update 'latest' Release with Calendar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v1
+        with:
+          name: 'Latest Pool League Fixtures Calendar'
+          tag_name: 'latest-pool-league-fixtures'
+          fail_on_unmatched_files: true
+          body: 'This release contains the most up-to-date fixtures for each team. Subscribe to the .ics files below.'
+          files: "${{ env.WORKING_DIRECTORY }}/dist/*.ics"
