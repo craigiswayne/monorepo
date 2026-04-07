@@ -116,15 +116,17 @@ const convert_events_to_ical = (events, location_mapper, team_url) => {
         // The 'location' is the mapped, full address
         let location = location_mapper[event.venue.toLowerCase()] || event.venue;
 
-        // --- CHANGED ---
-        // Create the multi-line description.
-        // The \n is the correct way to add a new line in an iCal field.
-        let description = `URL: ${team_url}`; // Start with the URL
-        if (event.venue) {
-            // Prepend the original venue name if it exists
-            // 'event.venue' is the original, un-mapped name (e.g., "Railway")
-            description = `Venue: ${event.venue}\n${description}`;
+        const description_lines = [];
+        description_lines.push(`Team URL: ${team_url}`);
+        if(event.match_url){
+            const domain_origin = new URL(team_url).origin;
+            description_lines.push(`Match URL: ${domain_origin}/${event.match_url}`);
         }
+        if (event.venue) {
+            // 'event.venue' is the original, un-mapped name (e.g., "Railway")
+            description_lines.push(`Venue: ${event.venue}`);
+        }
+
         // --- END CHANGE ---
 
         const uid = uuidv4();
@@ -133,7 +135,7 @@ const convert_events_to_ical = (events, location_mapper, team_url) => {
             `UID:${uid}`,
             `SUMMARY:${summary}`,
             `LOCATION:${location}`,
-            `DESCRIPTION:${description}`, // --- CHANGED ---
+            `DESCRIPTION:${description_lines.join('\n')}`,
             `DTSTAMP:${dtstamp}`,
             `DTSTART:${dtstart_formatted}`,
             `DTEND:${dtend_formatted}`,

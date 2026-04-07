@@ -90,14 +90,16 @@ const main = async () => {
     }
 
     console.log(`Found ${teams.length} team(s) to scrape...`);
-
+    const promises_for_team_fixtures_scrape = [];
     for (const team of teams) {
         if (team && team.url && team.name) {
-            await scrape_team_fixtures(team.url, team.name);
+            promises_for_team_fixtures_scrape.push(scrape_team_fixtures(team.url, team.name));
         } else {
             console.warn('⚠️ Skipping invalid team entry in teams.json:', team);
         }
     }
+
+    await Promise.all(promises_for_team_fixtures_scrape);
 
     console.log('🎉 All scrape operations finished.');
 };

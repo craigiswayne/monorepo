@@ -60,6 +60,10 @@ const parse_fixtures = (html_content) => {
         throw new Error('No HTML content provided.');
     }
     const $ = cheerio.load(html_content);
+    /**
+     *
+     * @type {{date: string, time: string, home_team: string, away_team: string, venue: string, match_url: string}[]}
+     */
     const fixtures = [];
     const table_rows = $('table:not(.fixed) tbody tr');
     if (table_rows.length === 0) {
@@ -81,6 +85,7 @@ const parse_fixtures = (html_content) => {
         const date = date_time_parts[0] || 'N/A';
         const time = date_time_parts[1] || 'N/A';
         const home_team = $(cells.get(2)).text().trim();
+        const match_url = $(cells.get(2)).find('a').attr('href') || '';
         const away_team = $(cells.get(4)).text().trim();
         const venue = $(cells.get(5)).text().trim();
         fixtures.push({
@@ -88,7 +93,8 @@ const parse_fixtures = (html_content) => {
             time,
             home_team,
             away_team,
-            venue
+            venue,
+            match_url
         });
     });
     return fixtures;
@@ -101,7 +107,7 @@ const main = async () => {
     try {
         console.log('Starting HTML-to-JSON export process...');
         const teams = await load_teams_async(TEAMS_FILE_PATH);
-
+        const promises_array = [];
         if (!Array.isArray(teams) || teams.length === 0) {
             console.warn('⚠️ teams.json is empty or invalid. Nothing to process.');
             return;
@@ -129,7 +135,7 @@ const main = async () => {
                 console.log(`Parsing HTML for ${team.name}...`);
                 const fixtures = parse_fixtures(html_content);
 
-                await save_json_file_async(json_output_path, fixtures);
+                promises_array.push(save_json_file_async(json_output_path, fixtures));
                 console.log(`✅ Successfully created JSON file for ${team.name} at ${json_output_path}`);
 
             } catch (error) {
@@ -141,6 +147,8 @@ const main = async () => {
                 }
             }
         }
+
+        await Promise.all(promises_array);
         console.log('🎉 All HTML parsing operations finished.');
     } catch (error)
     {

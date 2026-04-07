@@ -10,26 +10,55 @@ export const annual_events: AnnualEvent[] = [
     {
         name: 'International Pancake Day',
         type: 'calculated',
+        // 47 days before Easter
         calculate: (year: number) => get_pancake_day(year),
-    },
-    {
-        name: 'Internation Beer Day',
-        type: 'recurring',
-        recurrenceRule: 'FREQ=YEARLY;BYMONTH=8;BYDAY=1FR'
-    },
-    {
-        name: 'Star Wars Day',
-        type: 'recurring',
-        recurrenceRule: 'FREQ=YEARLY;BYMONTH=5;BYMONTHDAY=4'
-    },
-    {
-        name: 'International Coffee Day',
-        type: 'recurring',
-        recurrenceRule: 'FREQ=YEARLY;BYMONTH=10;BYMONTHDAY=1'
     },
     {
         name: 'World Pizza Day',
         type: 'recurring',
+        // February 9th
         recurrenceRule: 'FREQ=YEARLY;BYMONTH=2;BYMONTHDAY=9'
+    },
+    {
+        name: "Dentist's Day",
+        type: 'recurring',
+        // March 6th
+        recurrenceRule: 'FREQ=YEARLY;BYMONTH=2;BYMONTHDAY=6'
+    },
+    {
+        name: "PI Day",
+        type: 'recurring',
+        // March 6th
+        recurrenceRule: 'FREQ=YEARLY;BYMONTH=2;BYMONTHDAY=14'
+    },
+    {
+        name: "Waffle Day",
+        type: 'recurring',
+        // March 6th
+        recurrenceRule: 'FREQ=YEARLY;BYMONTH=2;BYMONTHDAY=25'
+    },
+    {
+        name: 'Star Wars Day',
+        type: 'recurring',
+        // May 4th
+        recurrenceRule: 'FREQ=YEARLY;BYMONTH=5;BYMONTHDAY=4'
+    },
+    {
+        name: 'International Beer Day',
+        type: 'recurring',
+        // First Friday of August
+        recurrenceRule: 'FREQ=YEARLY;BYMONTH=8;BYDAY=1FR'
+    },
+    {
+        name: 'National Girlfriend Day',
+        type: 'recurring',
+        // August 1st
+        recurrenceRule: 'FREQ=YEARLY;BYMONTH=8;BYMONTHDAY=1'
+    },
+    {
+        name: 'International Coffee Day',
+        type: 'recurring',
+        // October 1st
+        recurrenceRule: 'FREQ=YEARLY;BYMONTH=10;BYMONTHDAY=1'
     }
 ];
