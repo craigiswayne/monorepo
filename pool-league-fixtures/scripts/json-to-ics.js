@@ -135,7 +135,7 @@ const convert_events_to_ical = (events, location_mapper, team_url) => {
             `UID:${uid}`,
             `SUMMARY:${summary}`,
             `LOCATION:${location}`,
-            `DESCRIPTION:${description_lines.join('\n')}`,
+            `DESCRIPTION:${description_lines.join('\\n')}`,
             `DTSTAMP:${dtstamp}`,
             `DTSTART:${dtstart_formatted}`,
             `DTEND:${dtend_formatted}`,
