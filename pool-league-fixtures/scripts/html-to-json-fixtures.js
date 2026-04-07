@@ -61,7 +61,6 @@ const parse_fixtures = (html_content) => {
     }
     const $ = cheerio.load(html_content);
     /**
-     *
      * @type {{date: string, time: string, home_team: string, away_team: string, venue: string, match_url: string}[]}
      */
     const fixtures = [];

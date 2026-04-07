@@ -59,6 +59,9 @@ const parse_results = (html_content) => {
         throw new Error('No HTML content provided.');
     }
     const $ = cheerio.load(html_content);
+    /**
+     * @type {{date: string, time: string, home_team: string, away_team: string, venue: string, match_url: string}[]}
+     */
     const results = [];
     const table_rows = $('table.fixed tbody tr');
     if (table_rows.length === 0) {
@@ -80,6 +83,7 @@ const parse_results = (html_content) => {
         const date = date_time_parts[0] || 'N/A';
         const time = date_time_parts[1] || 'N/A';
         const home_team = $(cells.get(2)).text().trim();
+        const match_url = $(cells.get(2)).find('a').attr('href') || '';
         const result = $(cells.get(3)).text().trim().replace(/\s/g, '');
         const away_team = $(cells.get(4)).text().trim();
         const venue = '';
@@ -89,7 +93,8 @@ const parse_results = (html_content) => {
             home_team,
             away_team,
             venue,
-            result
+            result,
+            match_url
         });
     });
     return results;
