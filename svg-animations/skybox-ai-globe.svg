@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="eqKUZ4XvVfb1" viewBox="0 0 66 36"
+     shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+    <g>
+        <path d="M33,0.7c8.8,0,17,1.9,23.2,5.2c6,3.3,9.3,7.5,9.3,12s-3.3,8.7-9.3,12C50,33.4,41.8,35.3,33,35.3s-17-1.9-23.2-5.3c-6-3.3-9.3-7.5-9.3-12s3.3-8.8,9.3-12C16,2.6,24.2,0.7,33,0.7Z"
+              fill="none" stroke="#02ee8b" stroke-miterlimit="10"/>
+        <line x1="0.5" y1="18" x2="65.5" y2="18" fill="none" stroke="#02ee8b" stroke-miterlimit="10"/>
+        <path d="M12.5,4.8c3.7,1.7,11,4.4,20.5,4.5c9.6,0,16.8-2.8,20.5-4.5" fill="none" stroke="#02ee8b"
+              stroke-miterlimit="10"/>
+        <path d="M12.5,31.2c3.7-1.8,10.9-4.5,20.5-4.5s16.8,2.8,20.5,4.5" fill="none" stroke="#02ee8b"
+              stroke-miterlimit="10"/>
+    </g>
+    <path id="eqKUZ4XvVfb8"
+          d="M 33 0.8 C 33 0.8 3.4172101740000005 1.74495 3.4172101740000005 18.04495 C 3.4172101740000005 34.34495 33 35.4 33 35.4"
+          transform="matrix(1.003087 0 0 1-.101871 0)" fill="none" stroke="#02ee8b"
+          stroke-miterlimit="10"/>
+    <path id="eqKUZ4XvVfb9"
+          d="M 33 0.8 C 33 0.8 11.686499999999999 1.74495 11.686499999999999 18.04495 C 11.686499999999999 34.34495 33 35.4 33 35.4"
+          fill="none" stroke="#02ee8b" stroke-miterlimit="10"/>
+    <path id="eqKUZ4XvVfb10" d="M 33 0.7 C 33 0.7 23.3151 1.7 23.3151 18 C 23.3151 34.3 33 35.3 33 35.3" fill="none"
+          stroke="#02ee8b" stroke-miterlimit="10"/>
+    <path id="eqKUZ4XvVfb11"
+          d="M 33 0.7 C 33 0.7 38.6151 1.7367003669999999 38.6151 18.036700366999998 C 38.6151 34.336700367 33 35.2 33 35.2"
+          fill="none" stroke="#02ee8b" stroke-miterlimit="10"/>
+    <path id="eqKUZ4XvVfb12" d="M 33 0.7 C 33 0.7 51.7865 1.6633 51.7865 17.9633 C 51.7865 34.2633 33 35.3 33 35.3"
+          fill="none" stroke="#02ee8b" stroke-miterlimit="10"/>
+    <path id="eqKUZ4XvVfb13" d="M 33 0.7 C 33 0.7 60.6259 1.7 60.6259 18 C 60.6259 34.3 33 35.3 33 35.3" fill="none"
+          stroke="#02ee8b" stroke-miterlimit="10"/>
+</svg>

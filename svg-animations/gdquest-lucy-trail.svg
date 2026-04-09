@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2300 1e3">
+    <defs>
+        <linearGradient id="gradient" x1="0" x2="1" y1=".5" y2=".5" gradientUnits="objectBoundingBox" spreadMethod="repeat">
+            <stop stop-color="#c5effa" offset=".01" />
+            <stop stop-color="#fee3fd" offset=".1" />
+            <stop stop-color="#fff" offset=".2" />
+            <stop stop-color="#fefee8" offset=".3" />
+            <stop stop-color="#fdfd87" offset=".4" />
+            <stop stop-color="#f5fced" offset=".75" />
+            <stop stop-color="#c5effa" offset="1" />
+            <animate attributeName="x1" dur="700ms" from="0" to="-1" repeatCount="indefinite" />
+            <animate attributeName="x2" dur="700ms" from="1" to="0" repeatCount="indefinite" />
+        </linearGradient>
+        <path id="trail"
+              d="m11.23705 220.2026c0 162.66304 707.3488 164.87399 969.74167 181.36444 262.39211 16.48816 385.914 23.38667 578.98742 20.21149 76.79054-1.25205 196.86165-15.09793 229.94867-15.60943 163.1234-27.49936 170.86017-353.737.0-399.75223-33.11069-.53441-155.57597-.0229-233.20477 4.66466-207.46821 12.55259-366.5026 28.88349-643.72542 47.59862-277.22436 18.71666-901.74756 38.83196-901.74756 161.51635v.00611l-1e-5-1e-5z">
+        </path>
+    </defs>
+    <g id="lucy-container" class="lucyBounce">
+        <g class="lucyBlur">
+            <g id="g3" transform="translate(40, 350)" filter="url(#turbulence)">
+                <use href="#trail" fill="url(#gradient)" />
+            </g>
+        </g>
+    </g>
+</svg>

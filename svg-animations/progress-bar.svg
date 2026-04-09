@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <defs>
+        <clipPath id="progress-clip-path">
+            <rect height="100" width="100" y="0" x="0">
+                <animate attributeName="x" from="0" to="100" dur="1s" repeatCount="indefinite" />
+            </rect>
+        </clipPath>
+    </defs>
+    <path d="M18 36.895L81.99999999999999 36.895A13.104999999999999 13.104999999999999 0 0 1 95.10499999999999 50L95.10499999999999 50A13.104999999999999 13.104999999999999 0 0 1 81.99999999999999 63.105L18 63.105A13.104999999999999 13.104999999999999 0 0 1 4.895000000000003 50L4.895000000000003 50A13.104999999999999 13.104999999999999 0 0 1 18 36.895 Z" stroke-width="2.79" stroke="#e15b64" fill="none" />
+    <path id="inner-loader" d="M18 40.99L82 40.99A9.009999999999998 9.009999999999998 0 0 1 91.00999999999999 50L91.00999999999999 50A9.009999999999998 9.009999999999998 0 0 1 82 59.01L18 59.01A9.009999999999998 9.009999999999998 0 0 1 8.990000000000004 50L8.990000000000004 50A9.009999999999998 9.009999999999998 0 0 1 18 40.99 Z" clip-path="url(#progress-clip-path)" fill="#f8b26a" />
+    <text text-anchor="middle" dominant-baseline="middle" stroke-opacity="0.1" fill="black" fill-opacity="0.8" stroke="white" stroke-width="1" font-size="5.0" x="50" y="50" style="font-size: 8px">LOADING.IO</text>
+</svg>
