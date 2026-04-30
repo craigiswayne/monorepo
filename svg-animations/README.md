@@ -12,6 +12,8 @@
 | Grok Loader                            | ![grok-loader.svg](./grok-loader.svg)                                   | https://grok.com                                                          |
 | Github Workflow Loading Icon           | ![github-workflow-loading-icon.svg](./github-workflow-loading-icon.svg) | https://github.com                                                        |
 | KFC Loader                             | ![kfc-loader.svg](./kfc-loader.svg)                                     | https://www.kfc.co.uk/                                                    |
+| Revolut Preloader                      | ![revolut-preloader.svg](./revolut-preloader.svg)                       | https://app.revolut.com/logged-out                                        |
+| SkyBet Verifying Identity              | ![sky-bet-verifying-identity.svg](./sky-bet-verifying-identity.svg)     |                                                                           |
 
 -----
 

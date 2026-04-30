@@ -2,7 +2,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "node index.js"
+    "generate-calendar": "node index.js"
   },
   "dependencies": {
     "ics": "^3.8.1",

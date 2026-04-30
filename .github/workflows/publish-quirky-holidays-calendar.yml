@@ -39,7 +39,7 @@ jobs:
         run: npm run build
 
       - name: 'Generate the Calendar'
-        run: npm run start
+        run: npm run generate-calendar
 
       - name: Create/Update 'latest' Release with Calendar
         env:

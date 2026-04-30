@@ -60,5 +60,11 @@ export const annual_events: AnnualEvent[] = [
         type: 'recurring',
         // October 1st
         recurrenceRule: 'FREQ=YEARLY;BYMONTH=10;BYMONTHDAY=1'
+    },
+    {
+        name: 'OIE VOALDYN',
+        type: 'recurring',
+        // First Sunday of May
+        recurrenceRule: 'FREQ=YEARLY;BYMONTH=5;BYDAY=1SU'
     }
 ];

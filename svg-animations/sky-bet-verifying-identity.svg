@@ -1,0 +1,106 @@
+<svg width="200" height="200" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <style>
+            .cb {
+            fill: #EAEAEA
+            }
+
+            .cp {
+            fill: #dcdce0
+            }
+
+            .ap {
+            fill: #1A1A1A
+            }
+
+            .a {
+            clip-path: url(#mk)
+            }
+
+            .l {
+            fill: #1A1A1A;
+            opacity: .2
+            }
+
+            .g, .gc, .m {
+            animation-name: mk;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            transform-origin: 190px 150px
+            }
+
+            @keyframes mk {
+            0% {
+            transform: rotateZ(0)
+            }
+            100% {
+            transform: rotateZ(360deg)
+            }
+            }
+
+            .gc {
+            animation-name: mki;
+            transform-origin: 160px 150px
+            }
+
+            @keyframes mki {
+            0% {
+            transform: rotateZ(0)
+            }
+            100% {
+            transform: rotateZ(-360deg)
+            }
+            }
+
+            .c {
+            stroke: #474752;
+            stroke-width: 6px
+            }
+
+            .h {
+            fill: #474752;
+            transform: rotateZ(45deg);
+            transform-origin: 244px 136px
+            }
+        </style>
+    </defs>
+    <g>
+        <g>
+            <rect class="cb" x="80" y="105" width="140" height="90" rx="12" />
+            <g class="cp">
+                <circle cx="117" cy="133" r="16"/>
+                <path transform="translate(92 153)"
+                      d="M20,0.1c-11,0-20,9-20,20v6c0,2.2,1.8,4,4,4h42c2.2,0,4-1.8,4-4v-6c0-11-9-20-20-20H20z"/>
+            </g>
+            <g class="cp">
+                <rect x="154" y="117" width="42" height="12" rx="6" />
+                <rect x="154" y="137" width="54" height="12" rx="6" />
+                <rect x="154" y="157" width="30" height="12" rx="6" />
+            </g>
+        </g>
+        <g class="a">
+            <rect class="cb" x="80" y="105" width="140" height="90" rx="12" />
+            <g class="ap">
+                <circle cx="117" cy="133" r="16"/>
+                <path transform="translate(92 153)"
+                      d="M20,0.1c-11,0-20,9-20,20v6c0,2.2,1.8,4,4,4h42c2.2,0,4-1.8,4-4v-6c0-11-9-20-20-20H20z"/>
+            </g>
+            <g class="ap">
+                <rect x="154" y="117" width="42" height="12" rx="6" />
+                <rect x="154" y="137" width="54" height="12" rx="6" />
+                <rect x="154" y="157" width="30" height="12" rx="6" />
+            </g>
+        </g>
+        <clipPath id="mk">
+            <circle class="m" cx="160" cy="150" r="50"/>
+        </clipPath>
+        <g class="g">
+            <g class="gc">
+                <circle class="l" cx="160" cy="150" r="50"/>
+                <circle class="c" cx="160" cy="150" r="50"/>
+                <rect class="h" x="242" y="200" width="42" height="12" rx="6" />
+            </g>
+        </g>
+    </g>
+</svg>
