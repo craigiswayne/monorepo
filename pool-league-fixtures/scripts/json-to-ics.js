@@ -1,6 +1,6 @@
 const fs = require('fs').promises;
 const path = require('path');
-const { v4: uuidv4 } = require('uuid');
+const {v4: uuid_generator} = require('uuid');
 const {slugify} = require("./slugify");
 
 const ROOT_DIR = path.resolve(__dirname, '../');
@@ -52,7 +52,7 @@ const load_teams_async = async (file_path) => {
 
 const save_ical_file_async = async (file_path, ical_data) => {
     const dir_path = path.dirname(file_path);
-    await fs.mkdir(dir_path, { recursive: true });
+    await fs.mkdir(dir_path, {recursive: true});
     await fs.writeFile(file_path, ical_data, 'utf8');
 };
 
@@ -118,7 +118,7 @@ const convert_events_to_ical = (events, location_mapper, team_url) => {
 
         const description_lines = [];
         description_lines.push(`Team URL: ${team_url}`);
-        if(event.match_url){
+        if (event.match_url) {
             const domain_origin = new URL(team_url).origin;
             description_lines.push(`Match URL: ${domain_origin}/${event.match_url}`);
         }
@@ -129,7 +129,7 @@ const convert_events_to_ical = (events, location_mapper, team_url) => {
 
         // --- END CHANGE ---
 
-        const uid = uuidv4();
+        const uid = uuid_generator();
         ical_lines.push(
             'BEGIN:VEVENT',
             `UID:${uid}`,
@@ -217,8 +217,7 @@ const main = async () => {
             }
         }
         console.log('🎉 All iCal generation operations finished.');
-    } catch (error)
-    {
+    } catch (error) {
         console.error(`❌ A critical error occurred:`, error.message);
         process.exit(1);
     }
