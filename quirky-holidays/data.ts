@@ -2,6 +2,7 @@ import { get_pancake_day } from './helpers/get-pancake-day.js';
 
 export interface AnnualEvent {
     name: string;
+    description?: string;
     type: 'recurring' | 'calculated';
     calculate?: (year: number) => Date;
     recurrenceRule?: string;
@@ -62,8 +63,9 @@ export const annual_events: AnnualEvent[] = [
         recurrenceRule: 'FREQ=YEARLY;BYMONTH=10;BYMONTHDAY=1'
     },
     {
-        name: 'OIE VOALDYN',
+        name: 'Oie Voaldyn',
         type: 'recurring',
+        description: 'https://oievoaldyn.com/',
         // First Sunday of May
         recurrenceRule: 'FREQ=YEARLY;BYMONTH=5;BYDAY=1SU'
     }
