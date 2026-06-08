@@ -9,6 +9,18 @@ export interface AnnualEvent {
 }
 export const annual_events: AnnualEvent[] = [
     {
+        name: 'Mother\'s Day ZAR',
+        type: 'recurring',
+        // 2nd Sunday of May
+        recurrenceRule: 'FREQ=YEARLY;BYMONTH=5;BYDAY=2SU'
+    },
+    {
+        name: 'Father\'s Day ZAR',
+        type: 'recurring',
+        // 3rd Sunday of June
+        recurrenceRule: 'FREQ=YEARLY;BYMONTH=6;BYDAY=3SU'
+    },
+    {
         name: 'International Pancake Day',
         type: 'calculated',
         // 47 days before Easter
